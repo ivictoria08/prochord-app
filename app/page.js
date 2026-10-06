@@ -12,7 +12,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-slate-950/45 backdrop-blur-[2px] z-0" />
 
       {/* ENCABEZADO MÁS GRANDE Y DESTACADO */}
-      <header className="relative z-10 flex items-center justify-between px-10 py-8 border-b border-slate-800/40 bg-slate-900/30">
+      <header className="relative z-10 flex flex-wrap gap-4 items-center justify-between px-4 sm:px-10 py-5 sm:py-8 border-b border-slate-800/40 bg-slate-900/30">
         <div className="flex items-center space-x-4">
           <div className="w-14 h-14 relative flex items-center justify-center">
             <Image 
@@ -28,7 +28,7 @@ export default function Home() {
               ET RATZON
             </h1>
             <p className="text-xs text-cyan-300 font-semibold tracking-widest mt-0.5">
-              TIEMPO FAVORABLE - LIBRO DE ACORDES
+              LIBRO DE ACORDES
             </p>
           </div>
         </div>
@@ -47,7 +47,7 @@ export default function Home() {
           Plataforma de Control en Vivo
         </span>
         <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4 drop-shadow-lg">
-          Selecciona tu área de trabajo
+          Selecciona tu rol
         </h2>
         <p className="text-sm md:text-base text-slate-300 max-w-xl mb-12 drop-shadow">
           Accede a la consola optimizada según tu función durante el servicio de adoración.

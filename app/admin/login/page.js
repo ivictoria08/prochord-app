@@ -48,7 +48,7 @@ export default function LoginAdmin() {
     >
       <div className="absolute inset-0 bg-slate-950/60 backdrop-blur-sm z-0" />
 
-      <div className="relative z-10 w-full max-w-md bg-slate-900/50 border border-slate-800/80 rounded-2xl p-8 backdrop-blur-md shadow-2xl">
+      <div className="relative z-10 w-full max-w-md bg-slate-900/50 border border-slate-800/80 rounded-2xl p-5 sm:p-8 backdrop-blur-md shadow-2xl">
         <div className="flex flex-col items-center text-center mb-8">
           <div className="w-20 h-20 relative mb-3 flex items-center justify-center">
             <Image 

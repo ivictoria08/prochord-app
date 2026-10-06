@@ -235,13 +235,13 @@ export default function PanelAdmin() {
 
   return (
     <div 
-      className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans bg-cover bg-center bg-no-repeat relative"
+      className="responsive-admin min-h-dvh bg-slate-950 text-slate-100 flex flex-col font-sans bg-cover bg-center bg-no-repeat relative"
       style={{ backgroundImage: "url('/assets/main-wallpaper.jpg')" }}
     >
       <div className="absolute inset-0 bg-slate-950/45 backdrop-blur-[2px] z-0" />
 
       {/* ENCABEZADO */}
-      <header className="relative z-10 flex items-center justify-between px-8 py-6 border-b border-slate-800/40 bg-slate-900/30">
+      <header className="relative z-10 flex flex-wrap gap-4 items-center justify-between px-4 sm:px-8 py-4 sm:py-6 border-b border-slate-800/40 bg-slate-900/30">
         <div className="flex items-center space-x-4">
           <div className="w-16 h-16 relative flex items-center justify-center">
             <Image src="/assets/cruz.png" alt="Logo Cruz" width={100} height={100} className="object-contain" />
@@ -265,7 +265,7 @@ export default function PanelAdmin() {
       {errorSesion && <p role="alert" className="relative z-10 p-4 text-rose-300">{errorSesion}</p>}
 
       {/* CONTENIDO PRINCIPAL */}
-      <div className="relative z-10 flex-1 max-w-6xl w-full mx-auto p-6 flex flex-col gap-6">
+      <div className="relative z-10 flex-1 min-w-0 max-w-6xl w-full mx-auto p-3 sm:p-6 flex flex-col gap-6">
         <div className="flex gap-3 bg-slate-900/40 p-2 rounded-2xl border border-slate-800/80 backdrop-blur-sm w-fit">
           <button onClick={() => setTabActiva('canciones')} className={`px-5 py-2.5 rounded-xl text-xs font-bold transition ${tabActiva === 'canciones' ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-950/50' : 'text-slate-400 hover:text-white'}`}>
             Gestor de Canciones
@@ -275,10 +275,10 @@ export default function PanelAdmin() {
           </button>
         </div>
 
-        <main className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-6 backdrop-blur-sm flex-1 flex flex-col justify-between">
+        <main className="min-w-0 bg-slate-900/40 border border-slate-800/80 rounded-2xl p-3 sm:p-6 backdrop-blur-sm flex-1 flex flex-col justify-between">
           {tabActiva === 'canciones' ? (
             <div className="space-y-6">
-              <div className="flex justify-between items-center border-b border-slate-800/60 pb-4">
+              <div className="flex flex-wrap gap-3 justify-between items-center border-b border-slate-800/60 pb-4">
                 <div>
                   <h2 className="text-xl font-bold text-white">Catálogo de Alabanzas</h2>
                   <p className="text-xs text-slate-400">Agrega, edita o elimina canciones de la base de datos central.</p>
@@ -293,7 +293,7 @@ export default function PanelAdmin() {
               )}
 
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs">
+                <table className="song-catalog w-full text-left text-xs">
                   <thead className="border-b border-slate-800/80 text-cyan-300 uppercase tracking-wider bg-slate-950/40">
                     <tr>
                       <th className="py-3 px-4">Título</th>
@@ -311,11 +311,11 @@ export default function PanelAdmin() {
                     ) : (
                       canciones.map((cancion) => (
                         <tr key={cancion.id} className="hover:bg-slate-800/30 transition">
-                          <td className="py-3 px-4 font-bold text-white">{cancion.titulo}</td>
-                          <td className="py-3 px-4">{cancion.tono_base}</td>
-                          <td className="py-3 px-4">{cancion.bpm || 'N/A'}</td>
-                          <td className="py-3 px-4">{cancion.estilo}</td>
-                          <td className="py-3 px-4 text-right space-x-2">
+                          <td data-label="Título" className="py-3 px-4 font-bold text-white">{cancion.titulo}</td>
+                          <td data-label="Tono" className="py-3 px-4">{cancion.tono_base}</td>
+                          <td data-label="BPM" className="py-3 px-4">{cancion.bpm || 'N/A'}</td>
+                          <td data-label="Estilo" className="py-3 px-4">{cancion.estilo}</td>
+                          <td data-label="Acciones" className="py-3 px-4 text-right space-x-2">
                             <button onClick={() => abrirModalEditar(cancion)} className="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 rounded text-slate-200">Editar</button>
                             <button onClick={() => handleEliminarCancion(cancion.id, cancion.titulo)} className="px-2.5 py-1 bg-rose-950/60 hover:bg-rose-900 text-rose-300 rounded border border-rose-800/50">Eliminar</button>
                           </td>
@@ -344,7 +344,7 @@ export default function PanelAdmin() {
                 </div>
               )}
 
-              <fieldset disabled={guardandoSetlist || cargandoSetlist || !setlistDisponible} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <fieldset disabled={guardandoSetlist || cargandoSetlist || !setlistDisponible} className="min-w-0 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
                 {/* COLUMNA IZQUIERDA: CATÁLOGO DISPONIBLE */}
                 <div className="bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4 space-y-3">
                   <h3 className="text-xs font-bold text-cyan-300 uppercase tracking-wider pb-2 border-b border-slate-800/80">
@@ -457,7 +457,7 @@ export default function PanelAdmin() {
       {/* MODAL REUTILIZABLE (CREAR / EDITAR) */}
       {modalAbierto && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto p-6 space-y-4 shadow-2xl">
+          <div role="dialog" aria-modal="true" aria-label={cancionEditandoId ? 'Editar canción' : 'Registrar canción'} className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-4xl max-h-[90dvh] overflow-y-auto overscroll-contain p-4 sm:p-6 space-y-4 shadow-2xl">
             <div className="flex justify-between items-center border-b border-slate-800 pb-3">
               <h3 className="text-lg font-bold text-white">
                 {cancionEditandoId ? 'Editar Canción' : 'Registrar Nueva Canción'}

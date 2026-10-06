@@ -1,5 +1,97 @@
 @import "tailwindcss";
 
+/* Controles cómodos al tacto y formularios sin zoom automático en móviles. */
+@media (max-width: 639px) {
+  button, select, input:not([type="checkbox"]):not([type="radio"]) {
+    min-height: 44px;
+  }
+
+  input, select, textarea {
+    font-size: 16px;
+    min-width: 0;
+  }
+
+  .responsive-admin header > div:first-child {
+    min-width: 0;
+    gap: 12px;
+  }
+
+  .responsive-admin header > div:first-child > div:first-child {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+  }
+
+  .responsive-admin header > div:last-child {
+    flex-wrap: wrap;
+  }
+
+  .responsive-admin main, .responsive-admin fieldset > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .responsive-admin fieldset .flex {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .responsive-admin fieldset button {
+    flex-shrink: 0;
+  }
+
+  .responsive-admin > div > div.w-fit {
+    width: 100%;
+    gap: 4px;
+  }
+
+  .responsive-admin > div > div.w-fit button {
+    flex: 1;
+    padding-inline: 8px;
+  }
+
+  /* El catálogo se presenta como fichas con etiquetas en pantallas pequeñas. */
+  .song-catalog thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .song-catalog tbody, .song-catalog tr, .song-catalog td {
+    display: block;
+    width: 100%;
+  }
+
+  .song-catalog tr {
+    margin-bottom: 12px;
+    border: 1px solid var(--color-slate-800);
+    border-radius: 12px;
+    padding: 8px;
+    background: var(--color-slate-950);
+  }
+
+  .song-catalog td {
+    padding: 6px;
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+
+  .song-catalog td[data-label]::before {
+    content: attr(data-label) ": ";
+    color: var(--color-slate-400);
+    font-weight: normal;
+  }
+
+  .song-catalog td[data-label="Acciones"] {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
 /* O si estás usando Tailwind v3, debe tener estas tres líneas: */
 
 /* @tailwind base;
