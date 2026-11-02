@@ -63,10 +63,6 @@ export default function VistaProyector() {
         <div className="flex flex-wrap items-center gap-3">
           <Link href="/proyector/live" target="_blank" rel="noopener noreferrer" className="px-3 py-2 rounded-xl bg-cyan-700 text-white text-xs">Abrir pantalla en vivo</Link>
           <button onClick={recargar} disabled={cargando} className="px-3 py-2 rounded-xl bg-slate-800 text-xs">{cargando ? 'Cargando...' : 'Actualizar setlist'}</button>
-          <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/40 text-emerald-400 text-xs font-bold">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            Control de proyección
-          </span>
         </div>
       </header>
 
@@ -151,7 +147,7 @@ export default function VistaProyector() {
                   onClick={() => proyectar('')}
                   className="px-4 py-2 bg-rose-600/80 hover:bg-rose-500 text-white text-xs font-bold rounded-xl border border-rose-500/40 transition"
                 >
-                  Limpiar Pantalla 🚫
+                  Limpiar Pantalla
                 </button>
               </div>
 

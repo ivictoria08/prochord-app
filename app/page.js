@@ -43,9 +43,7 @@ export default function Home() {
 
       {/* CONTENIDO CENTRAL */}
       <main className="relative z-10 flex flex-col items-center justify-center px-4 py-12 text-center max-w-4xl mx-auto">
-        <span className="text-xs font-bold text-cyan-300 tracking-widest uppercase mb-4 bg-cyan-950/70 px-4 py-1.5 rounded-full border border-cyan-500/40 shadow-lg">
-          Plataforma de Control en Vivo
-        </span>
+        
         <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4 drop-shadow-lg">
           Selecciona tu rol
         </h2>
